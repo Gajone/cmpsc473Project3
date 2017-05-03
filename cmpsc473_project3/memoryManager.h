@@ -9,20 +9,25 @@ public:
 	virtualMemoryManagerInterface(ReplacementPolicy p, unsigned int pS, unsigned int nF, unsigned int vA) : policy(p), N(pS), numFrames(nF), virtualAddressSpaceSize(vA) {
 		assert(virtualAddressSpaceSize > N);
 		assert(pow(2, virtualAddressSpaceSize) > numFrames * pow(2, N));
-		if (p==FIFO) {
-			//allocate vector for stuff
-			vector<unsigned long long> fifoPhysicalMemory;
-			fifoPhysicalMemory.reserve(numframes);
 
+		//Thomas Wenner 5/3/2017 stuff
 
-			vector<unsigned long long> fifoVirtualMemory;
+		//calculate number of indexes in page table vector
+		int pageTableVectorlength = numFrames;
 
-		}
-		else if (p==LRU) {
-			//not sure what data structure to use yet
+		//make struct for stuff and stuff
+		struct pageTableAddress{
+			unsigned long long address;		//virtual address stored at this page table address (phyiscal address is the index number)
+			unsigned long long counter;		//used for LRU (evicts address with the lowest number once the page table is filled)
+			bool inMemory=false;
+		};
 
-		}
-		
+		//make Page Table Vector
+		vector<pageTableAddress> myPageTable;
+		myPageTable.reserve(pageTableVectorlength);		//set length of page table vector
+
+		unsigned long long replacementIndex=0;		//for the FIFO implementation function
+		unsigned long long myCounter = 0;
 	}
 
 
