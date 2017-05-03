@@ -78,5 +78,5 @@ unsigned long long memoryManager::memoryAccess(unsigned long long address) {
 }
 
 void memoryManager::swap(unsigned int frameNumber, unsigned int pageNumber) {
-
+	int q = 0;
 }

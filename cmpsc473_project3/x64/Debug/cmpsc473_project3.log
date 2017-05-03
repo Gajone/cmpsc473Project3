@@ -1,4 +1,3 @@
-﻿  stdafx.cpp
-  cmpsc473_project3.cpp
-  cmpsc473_project3.vcxproj -> C:\Users\TJ\Documents\GitHub\cmpsc473Project3\x64\Debug\cmpsc473_project3.exe
-  cmpsc473_project3.vcxproj -> C:\Users\TJ\Documents\GitHub\cmpsc473Project3\x64\Debug\cmpsc473_project3.pdb (Full PDB)
+﻿  cmpsc473_project3.cpp
+cmpsc473_project3.obj : error LNK2019: unresolved external symbol "public: virtual unsigned __int64 __cdecl memoryManager::memoryAccess(unsigned __int64)" (?memoryAccess@memoryManager@@UEAA_K_K@Z) referenced in function main
+C:\Users\TJ\Documents\GitHub\cmpsc473Project3\x64\Debug\cmpsc473_project3.exe : fatal error LNK1120: 1 unresolved externals

@@ -6,14 +6,14 @@ using namespace std;
 
 class memoryManager :public virtualMemoryManagerInterface {
 public:
-	virtualMemoryManagerInterface(ReplacementPolicy p, unsigned int pS, unsigned int nF, unsigned int vA) : policy(p), N(pS), numFrames(nF), virtualAddressSpaceSize(vA) {
-		assert(virtualAddressSpaceSize > N);
-		assert(pow(2, virtualAddressSpaceSize) > numFrames * pow(2, N));
+	//memoryManager(ReplacementPolicy p, unsigned int pS, unsigned int nF, unsigned int vA) : policy(p), N(pS), numFrames(nF), virtualAddressSpaceSize(vA) {
+
+	memoryManager(ReplacementPolicy p, unsigned int pS, unsigned int nF, unsigned int vA) : virtualMemoryManagerInterface(p, pS, nF, vA) {
 
 		//Thomas Wenner 5/3/2017 stuff
 
 		//calculate number of indexes in page table vector
-		int pageTableVectorlength = numFrames;
+		unsigned long long pageTableVectorlength = numFrames;
 
 		//make struct for stuff and stuff
 		struct pageTableAddress{
@@ -42,7 +42,7 @@ public:
 	* This function is to effect page swaps by calling the other key
 	function (defined below)
 	*/
-	unsigned long long memoryAccess(unsigned long long address) override;
+	unsigned long long memoryAccess(unsigned long long address);
 	/** This is the method your memory manager should call to swap pages.
 	* This function has been instrumented by the TAs to report memory
 	system performance.
@@ -51,7 +51,7 @@ public:
 	* @param pageNumber the (virtual) page number to read from swap file
 	into the given frame
 	*/
-	void swap(unsigned int frameNumber, unsigned int pageNumber) override;
+	void swap(unsigned int frameNumber, unsigned int pageNumber);
 
 
 };
